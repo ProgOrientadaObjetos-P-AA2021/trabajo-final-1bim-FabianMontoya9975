@@ -304,18 +304,18 @@ public class Ejecutor {
         String nombreArchivo2 = "ubicaciones.txt";
         String nombreArchivo3 = "ciudades.txt";
         String nombreArchivo4 = "constructoras.txt";
-        String nombreProp;
-        String apellidoProp;
+        String nombreProp = "";
+        String apellidoProp = "";
         String idProp;
         double precioM2;
         int numeroM2;
-        String nombreB;
-        String referencia;
+        String nombreB = "";
+        String referencia = "";
         String numeroCa;
         String ciudad;
-        String provincia;
+        String provincia = "";
         int nCuartos;
-        String nombreEmp;
+        String nombreEmp = "";
         String idEmp;
         boolean buscar;
         System.out.println("Ingrese la identificación del Propietario: ");
@@ -396,7 +396,7 @@ public class Ejecutor {
                 nombreEmp = lista4.get(i).obtenerNombreConstructora();
             }
         }
-        Constructora constDef = new Constructora(nombreB, idEmp);
+        Constructora constDef = new Constructora(nombreEmp, idEmp);
         Casa casa1 = new Casa(propDef, precioM2, numeroM2, ubiDef,
                 ciuDef, nCuartos, constDef);
         casa1.establecerCostoFinal();
@@ -414,17 +414,17 @@ public class Ejecutor {
         String nombreArchivo2 = "ubicaciones.txt";
         String nombreArchivo3 = "ciudades.txt";
         String nombreArchivo4 = "constructoras.txt";
-        String nombreProp;
-        String apellidoProp;
+        String nombreProp = "";
+        String apellidoProp = "";
         String idProp;
         double precioM2;
         int numeroM2;
-        String nombreB;
-        String referencia;
+        String nombreB = "";
+        String referencia = "";
         String numeroCa;
         String ciudad;
-        String provincia;
-        String nombreEmp;
+        String provincia = "";
+        String nombreEmp = "";
         String idEmp;
         boolean buscar;
         double alicuotaMensual;
@@ -455,7 +455,6 @@ public class Ejecutor {
         System.out.println("Ingrese el valor de la alicuota mensual: ");
         alicuotaMensual = entrada.nextDouble();
         // buscar ubicación
-        buscar = false;
         System.out.println("Ingrese el número de Casa: ");
         numeroCa = entrada.nextLine();
         buscar = buscarUbicacion(numeroCa);
@@ -475,7 +474,6 @@ public class Ejecutor {
         Ubicacion ubiDef = new Ubicacion(nombreB, referencia, numeroCa);
         
         //Buscar ciudad
-        buscar = false;
         System.out.println("Ingrese el nombre de la ciudad: ");
         ciudad = entrada.nextLine();
         buscar = buscarCiudad(ciudad);
@@ -498,7 +496,6 @@ public class Ejecutor {
                 + "edificio: ");
         ubiDepEdi = entrada.nextLine();
         //Buscar Constructora
-        buscar = false;
         System.out.println("Ingrese el nID de la constructora: ");
         idEmp = entrada.nextLine();
         buscar = buscarConstructora(idEmp);
@@ -514,7 +511,7 @@ public class Ejecutor {
                 nombreEmp = lista4.get(i).obtenerNombreConstructora();
             }
         }
-        Constructora constDef = new Constructora(nombreB, idEmp);
+        Constructora constDef = new Constructora(nombreEmp, idEmp);
         Departamento dep1 = new Departamento(propDef, precioM2, numeroM2, 
                 alicuotaMensual, ubiDef, ciuDef, nomEdi, ubiDepEdi, constDef);
         dep1.establecerCostoFinal();
