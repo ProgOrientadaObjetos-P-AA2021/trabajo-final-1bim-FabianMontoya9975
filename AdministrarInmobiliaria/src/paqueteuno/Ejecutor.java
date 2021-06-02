@@ -240,7 +240,7 @@ public class Ejecutor {
             }
         }
         if (bandera) {
-            // ingreso de datos faltantes
+            // Ingreso de datos faltantes
             System.out.println("Ingrese el nombre del Barrio: ");
             nombreB = entrada.nextLine();
             System.out.println("Ingrese la referencia: ");
