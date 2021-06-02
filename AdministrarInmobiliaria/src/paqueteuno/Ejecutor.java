@@ -51,6 +51,7 @@ public class Ejecutor {
                     + "-15- Para mostrar la lista de todas las Casas\n"
                     + "-16- Para mostrar la lista de todos los Departamentos: ");
             opcion = entrada.nextInt();
+            entrada.nextLine();
             if ((opcion >= 1) && (opcion <= 16)) {
                 switch (opcion) {
                     case 1:
@@ -168,6 +169,7 @@ public class Ejecutor {
                         + "nueva acción.\nY si no necesita realizar otra "
                         + "acción digite cualquier número excepto el 0");
                 opcion2 = entrada.nextInt();
+                entrada.nextLine();
                 if (opcion2 == 0) {
                     bandera = true;
                 } else {
@@ -261,7 +263,7 @@ public class Ejecutor {
             }
         }
         if (bandera) {
-            System.out.println("Ingrese el número de Provincia: ");
+            System.out.println("Ingrese el nombre de Provincia: ");
             provincia = entrada.nextLine();
             Ciudad ciud = new Ciudad(ciudad, provincia);
             EscribirCiudad archivo = new EscribirCiudad(nombreArchivo);
@@ -287,7 +289,7 @@ public class Ejecutor {
             }
         }
         if (bandera) {
-            System.out.println("Ingrese el nombre del Barrio: ");
+            System.out.println("Ingrese el nombre de la Constructora: ");
             nombreCons = entrada.nextLine();
             Constructora constr = new Constructora(nombreCons, idEmp);
             EscribirConstructora archivo = new EscribirConstructora(nombreArchivo);
@@ -340,8 +342,8 @@ public class Ejecutor {
         precioM2 = entrada.nextDouble();
         System.out.println("Ingrese el número de metros cuadrados: ");
         numeroM2 = entrada.nextInt();
+        entrada.nextLine();
         // buscar ubicación
-        buscar = false;
         System.out.println("Ingrese el número de Casa: ");
         numeroCa = entrada.nextLine();
         buscar = buscarUbicacion(numeroCa);
@@ -360,7 +362,6 @@ public class Ejecutor {
         }
         Ubicacion ubiDef = new Ubicacion(nombreB, referencia, numeroCa);
         //Buscar ciudad
-        buscar = false;
         System.out.println("Ingrese el nombre de la ciudad: ");
         ciudad = entrada.nextLine();
         buscar = buscarCiudad(ciudad);
@@ -379,9 +380,9 @@ public class Ejecutor {
         Ciudad ciuDef = new Ciudad(ciudad, provincia);
         System.out.println("Ingrese el número de cuartos: ");
         nCuartos = entrada.nextInt();
+        entrada.nextLine();
         //Buscar Constructora
-        buscar = false;
-        System.out.println("Ingrese el nID de la constructora: ");
+        System.out.println("Ingrese el ID de la constructora: ");
         idEmp = entrada.nextLine();
         buscar = buscarConstructora(idEmp);
         if (buscar) {
@@ -409,7 +410,7 @@ public class Ejecutor {
 
     public static void ingresarDepartamento() {
         Scanner entrada = new Scanner(System.in);
-        String nombreArchivo = "casas.txt";
+        String nombreArchivo = "departamentos.txt";
         String nombreArchivo1 = "propietarios.txt";
         String nombreArchivo2 = "ubicaciones.txt";
         String nombreArchivo3 = "ciudades.txt";
@@ -454,6 +455,7 @@ public class Ejecutor {
         numeroM2 = entrada.nextInt();
         System.out.println("Ingrese el valor de la alicuota mensual: ");
         alicuotaMensual = entrada.nextDouble();
+        entrada.nextLine();
         // buscar ubicación
         System.out.println("Ingrese el número de Casa: ");
         numeroCa = entrada.nextLine();
@@ -496,7 +498,7 @@ public class Ejecutor {
                 + "edificio: ");
         ubiDepEdi = entrada.nextLine();
         //Buscar Constructora
-        System.out.println("Ingrese el nID de la constructora: ");
+        System.out.println("Ingrese el ID de la constructora: ");
         idEmp = entrada.nextLine();
         buscar = buscarConstructora(idEmp);
         if (buscar) {

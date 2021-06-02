@@ -5,6 +5,7 @@
  */
 package paqueteseis;
 
+import java.io.Serializable;
 import paquetecinco.Constructora;
 import paquetecuatro.Ciudad;
 import paquetedos.Propietario;
@@ -14,7 +15,7 @@ import paquetetres.Ubicacion;
  *
  * @author reroes
  */
-public class Casa {
+public class Casa implements Serializable {
 
     private Propietario personaPropietaria;
     private double precioMetro2;

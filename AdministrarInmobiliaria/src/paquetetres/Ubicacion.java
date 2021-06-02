@@ -5,11 +5,13 @@
  */
 package paquetetres;
 
+import java.io.Serializable;
+
 /**
  *
  * @author reroes
  */
-public class Ubicacion {
+public class Ubicacion implements Serializable {
 
     private String nombreBarrio;
     private String referencia;
