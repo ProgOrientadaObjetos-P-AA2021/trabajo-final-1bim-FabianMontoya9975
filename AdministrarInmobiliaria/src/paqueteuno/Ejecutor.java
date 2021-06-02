@@ -640,6 +640,7 @@ public class Ejecutor {
         lectura.establecerListaPropietario();
         // Presentacion de la lista de datos
         System.out.println(lectura);
+        lectura.cerrarArchivo();
     }
 
     public static void mostrarUbicaciones() {
@@ -649,6 +650,7 @@ public class Ejecutor {
         lectura.establecerListaUbicacion();
         // Presentacion de la lista de datos
         System.out.println(lectura);
+        lectura.cerrarArchivo();
     }
 
     public static void mostrarCiudades() {
@@ -658,6 +660,7 @@ public class Ejecutor {
         lectura.establecerListaCiudad();
         // Presentacion de la lista de datos
         System.out.println(lectura);
+        lectura.cerrarArchivo();
     }
 
     public static void mostrarConstructoras() {
@@ -667,6 +670,7 @@ public class Ejecutor {
         lectura.establecerListaConstructora();
         // Presentacion de la lista de datos
         System.out.println(lectura);
+        lectura.cerrarArchivo();
     }
 
     public static void mostrarCasas() {
@@ -676,6 +680,7 @@ public class Ejecutor {
         lectura.establecerListaCasa();
         // Presentacion de la lista de datos
         System.out.println(lectura);
+        lectura.cerrarArchivo();
     }
 
     public static void mostrarDepartamentos() {
@@ -685,6 +690,7 @@ public class Ejecutor {
         lectura.establecerListaDepartamento();
         // Presentacion de la lista de datos
         System.out.println(lectura);
+        lectura.cerrarArchivo();
     }
 
 }
