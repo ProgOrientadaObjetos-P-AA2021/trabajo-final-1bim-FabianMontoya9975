@@ -13,14 +13,17 @@ import java.io.Serializable;
  */
 public class Ciudad implements Serializable {
 
+    // atributos
     private String nombreCiudad;
     private String nombreProvincia;
 
+    //Constructor
     public Ciudad(String ciudad, String provincia) {
         nombreCiudad = ciudad;
         nombreProvincia = provincia;
     }
 
+    // métodos establecer
     public void establecerNombreCiudad(String c) {
         nombreCiudad = c;
     }
@@ -29,6 +32,7 @@ public class Ciudad implements Serializable {
         nombreProvincia = p;
     }
 
+    // métodos obtener
     public String obtenerNombreCiudad() {
         return nombreCiudad;
     }

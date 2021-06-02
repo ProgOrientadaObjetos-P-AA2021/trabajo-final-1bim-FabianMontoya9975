@@ -13,14 +13,17 @@ import java.io.Serializable;
  */
 public class Constructora implements Serializable {
 
+    // atributos
     private String nombreConstructora;
     private String idEmpresa;
 
+    //Constructor
     public Constructora(String nombre, String id) {
         nombreConstructora = nombre;
         idEmpresa = id;
     }
 
+    // métodos establecer
     public void establecerNombreConstructora(String nombre) {
         nombreConstructora = nombre;
     }
@@ -29,6 +32,7 @@ public class Constructora implements Serializable {
         idEmpresa = id;
     }
 
+    // métodos obtener
     public String obtenerNombreConstructora() {
         return nombreConstructora;
     }
@@ -36,7 +40,7 @@ public class Constructora implements Serializable {
     public String obtenerIdEmpresa() {
         return idEmpresa;
     }
-    
+
     @Override
     public String toString() {
         String cadena = String.format("Información del Constructora:\n"

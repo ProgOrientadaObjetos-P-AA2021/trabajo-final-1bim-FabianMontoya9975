@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package paquetesiete;
 
 import java.io.FileOutputStream;
@@ -13,11 +12,11 @@ import java.util.ArrayList;
 import paqueteseis.Casa;
 
 /**
- * 
+ *
  * @author josef
  */
 public class EscribirCasa {
-    
+
     private String nombreArchivo;
     private ObjectOutputStream salida; // envía los datos a un archivo
     private Casa registro;

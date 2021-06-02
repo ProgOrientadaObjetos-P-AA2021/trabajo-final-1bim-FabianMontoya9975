@@ -17,6 +17,7 @@ import paquetetres.Ubicacion;
  */
 public class Departamento implements Serializable {
 
+    // atributos
     private Propietario personaPropietaria;
     private double precioMetro2;
     private int numeroMetro2;
@@ -29,6 +30,7 @@ public class Departamento implements Serializable {
     private String ubicacionDepartamentoEdificio;
     private Constructora empresaConstructora;
 
+    //Constructor
     public Departamento(Propietario persona, double precioM2, int numM2,
             double alicuota, Ubicacion ubiDep, Ciudad ciuDep, String nombreEd,
             String ubiDepEdi, Constructora empresa) {
@@ -43,6 +45,7 @@ public class Departamento implements Serializable {
         empresaConstructora = empresa;
     }
 
+    // métodos establecer
     public void establecerPersonaPropietaria(Propietario prop) {
         personaPropietaria = prop;
     }
@@ -83,6 +86,7 @@ public class Departamento implements Serializable {
         empresaConstructora = emp;
     }
 
+    // métodos obtener
     public Propietario obtenerPersonaPropietaria() {
         return personaPropietaria;
     }

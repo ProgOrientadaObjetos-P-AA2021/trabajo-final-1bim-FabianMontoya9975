@@ -13,10 +13,12 @@ import java.io.Serializable;
  */
 public class Ubicacion implements Serializable {
 
+    // atributos
     private String nombreBarrio;
     private String referencia;
     private String numeroCasa;
 
+    //Constructor
     public Ubicacion(String nombreB, String ref) {
         nombreBarrio = nombreB;
         referencia = ref;
@@ -28,6 +30,7 @@ public class Ubicacion implements Serializable {
         numeroCasa = numCasa;
     }
 
+    // métodos establecer
     public void establecerNombreBarrio(String nombre) {
         nombreBarrio = nombre;
     }
@@ -40,6 +43,7 @@ public class Ubicacion implements Serializable {
         numeroCasa = numCasa;
     }
 
+    // métodos obtener
     public String obtenerNombreBarrio() {
         return nombreBarrio;
     }
@@ -51,7 +55,7 @@ public class Ubicacion implements Serializable {
     public String obtenerNumeroCasa() {
         return numeroCasa;
     }
-    
+
     @Override
     public String toString() {
         String cadena = String.format("Información de la Ubicación:\n"

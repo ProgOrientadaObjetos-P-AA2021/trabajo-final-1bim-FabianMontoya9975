@@ -31,8 +31,9 @@ public class Ejecutor {
         String numeroC;
         String ciudad;
         String idEmp;
-
+        //Control del ingreso de las opciones
         do {
+            // menu
             System.out.println("Digite la opción:\n"
                     + "-1- Para ingresar un Propietario\n"
                     + "-2- Para ingresar una Ubicación\n"
@@ -43,19 +44,22 @@ public class Ejecutor {
                     + "-7- Para comprobar si está registrado un Propietario\n"
                     + "-8- Para comprobar si está registrada una Ubicacion\n"
                     + "-9- Para comprobar si está registrada una Ciudad\n"
-                    + "-10- Para comprobar si está registrada una Constructora\n"
-                    + "-11- Para mostrar la lista de todos los Propietarios\n"
+                    + "-10- Para comprobar si está registrada una "
+                    + "Constructora\n-11- Para mostrar la lista de todos los"
+                    + " Propietarios\n"
                     + "-12- Para mostrar la lista de todas las Ubicaciones\n"
                     + "-13- Para mostrar la lista de todas las Ciudades\n"
                     + "-14- Para mostrar la lista de todas las Constructoras\n"
                     + "-15- Para mostrar la lista de todas las Casas\n"
-                    + "-16- Para mostrar la lista de todos los Departamentos: ");
+                    + "-16- Para mostrar la lista de todos los "
+                    + "Departamentos: ");
             opcion = entrada.nextInt();
             entrada.nextLine();
             if ((opcion >= 1) && (opcion <= 16)) {
                 switch (opcion) {
                     case 1:
-                        System.out.println("Ingrese la identificación del Propietario: ");
+                        System.out.println("Ingrese la identificación del"
+                                + " Propietario: ");
                         idProp = entrada.nextLine();
                         ingresarPropietario(idProp);
                         break;
@@ -196,17 +200,22 @@ public class Ejecutor {
         for (int i = 0; i < lista.size(); i++) {
             Propietario p = lista.get(i);
             if (p.obtenerIdentificacion().equals(idProp)) {
+                // control de existencia de datos
                 System.out.println("El propietario ya está registrado.\n" + p);
                 bandera = false;
             }
         }
         if (bandera) {
+            // ingreso de datos faltantes
             System.out.println("Ingrese el Nombre del Propietario: ");
             nombreProp = entrada.nextLine();
             System.out.println("Ingrese el Apellido del Propietario: ");
             apellidoProp = entrada.nextLine();
-            Propietario propiet = new Propietario(nombreProp, apellidoProp, idProp);
-            EscribirPropietario archivo = new EscribirPropietario(nombreArchivo);
+            Propietario propiet = new Propietario(nombreProp, apellidoProp,
+                    idProp);
+            EscribirPropietario archivo = new EscribirPropietario(
+                    nombreArchivo);
+            // Escritura del archivo
             archivo.establecerRegistro(propiet);
             archivo.establecerSalida();
             archivo.cerrarArchivo();
@@ -225,17 +234,20 @@ public class Ejecutor {
         for (int i = 0; i < lista.size(); i++) {
             Ubicacion u = lista.get(i);
             if (u.obtenerNumeroCasa().equals(numeroC)) {
+                // control de existencia de datos
                 System.out.println("La Ubicación ya está registrada.\n" + u);
                 bandera = false;
             }
         }
         if (bandera) {
+            // ingreso de datos faltantes
             System.out.println("Ingrese el nombre del Barrio: ");
             nombreB = entrada.nextLine();
             System.out.println("Ingrese la referencia: ");
             referencia = entrada.nextLine();
             Ubicacion ubic = new Ubicacion(nombreB, referencia, numeroC);
             EscribirUbicacion archivo = new EscribirUbicacion(nombreArchivo);
+            // Escritura del archivo
             archivo.establecerRegistro(ubic);
             archivo.establecerSalida();
             archivo.cerrarArchivo();
@@ -258,15 +270,18 @@ public class Ejecutor {
             Ciudad c = lista.get(i);
             ci2 = c.obtenerNombreCiudad().toLowerCase();
             if (ci2.equals(ci)) {
+                // control de existencia de datos
                 System.out.println("La Ciudad ya está registrada.\n" + c);
                 bandera = false;
             }
         }
         if (bandera) {
+            // ingreso de datos faltantes
             System.out.println("Ingrese el nombre de Provincia: ");
             provincia = entrada.nextLine();
             Ciudad ciud = new Ciudad(ciudad, provincia);
             EscribirCiudad archivo = new EscribirCiudad(nombreArchivo);
+            // Escritura del archivo
             archivo.establecerRegistro(ciud);
             archivo.establecerSalida();
             archivo.cerrarArchivo();
@@ -284,15 +299,19 @@ public class Ejecutor {
         for (int i = 0; i < lista.size(); i++) {
             Constructora c = lista.get(i);
             if (c.obtenerIdEmpresa().equals(idEmp)) {
+                // control de existencia de datos
                 System.out.println("La Ubicación ya está registrada.\n" + c);
                 bandera = false;
             }
         }
         if (bandera) {
+            // ingreso de datos faltantes
             System.out.println("Ingrese el nombre de la Constructora: ");
             nombreCons = entrada.nextLine();
             Constructora constr = new Constructora(nombreCons, idEmp);
-            EscribirConstructora archivo = new EscribirConstructora(nombreArchivo);
+            EscribirConstructora archivo = new EscribirConstructora(
+                    nombreArchivo);
+            // Escritura del archivo
             archivo.establecerRegistro(constr);
             archivo.establecerSalida();
             archivo.cerrarArchivo();
@@ -326,6 +345,7 @@ public class Ejecutor {
         buscar = buscarPropietario(idProp);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarPropietario(idProp);
         }
         LeerPropietario lectura = new LeerPropietario(nombreArchivo1);
@@ -333,11 +353,13 @@ public class Ejecutor {
         ArrayList<Propietario> lista = lectura.obtenerListaPropietario();
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).obtenerIdentificacion().equals(idProp)) {
+                // obtencion de datos existentes en el archivo
                 nombreProp = lista.get(i).obtenerNombre();
                 apellidoProp = lista.get(i).obtenerApellido();
             }
         }
-        Propietario propDef = new Propietario(nombreProp, apellidoProp, idProp);
+        Propietario propDef = new Propietario(nombreProp, apellidoProp,
+                idProp);
         System.out.println("Ingrese el precio por metro cuadrado: ");
         precioM2 = entrada.nextDouble();
         System.out.println("Ingrese el número de metros cuadrados: ");
@@ -349,6 +371,7 @@ public class Ejecutor {
         buscar = buscarUbicacion(numeroCa);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarUbicacion(numeroCa);
         }
         LeerUbicacion lectura2 = new LeerUbicacion(nombreArchivo2);
@@ -356,6 +379,7 @@ public class Ejecutor {
         ArrayList<Ubicacion> lista2 = lectura2.obtenerListaUbicacion();
         for (int i = 0; i < lista2.size(); i++) {
             if (lista2.get(i).obtenerNumeroCasa().equals(numeroCa)) {
+                // obtencion de datos existentes en el archivo
                 nombreB = lista2.get(i).obtenerNombreBarrio();
                 referencia = lista2.get(i).obtenerReferencia();
             }
@@ -367,6 +391,7 @@ public class Ejecutor {
         buscar = buscarCiudad(ciudad);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarCiudad(ciudad);
         }
         LeerCiudad lectura3 = new LeerCiudad(nombreArchivo3);
@@ -374,6 +399,7 @@ public class Ejecutor {
         ArrayList<Ciudad> lista3 = lectura3.obtenerListaCiudad();
         for (int i = 0; i < lista3.size(); i++) {
             if (lista3.get(i).obtenerNombreCiudad().equals(ciudad)) {
+                // obtencion de datos existentes en el archivo
                 provincia = lista3.get(i).obtenerNombreProvincia();
             }
         }
@@ -387,6 +413,7 @@ public class Ejecutor {
         buscar = buscarConstructora(idEmp);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarConstructora(idEmp);
         }
         LeerConstructora lectura4 = new LeerConstructora(nombreArchivo4);
@@ -394,6 +421,7 @@ public class Ejecutor {
         ArrayList<Constructora> lista4 = lectura4.obtenerListaConstructora();
         for (int i = 0; i < lista4.size(); i++) {
             if (lista4.get(i).obtenerIdEmpresa().equals(idEmp)) {
+                // obtencion de datos existentes en el archivo
                 nombreEmp = lista4.get(i).obtenerNombreConstructora();
             }
         }
@@ -402,10 +430,11 @@ public class Ejecutor {
                 ciuDef, nCuartos, constDef);
         casa1.establecerCostoFinal();
         EscribirCasa archivo = new EscribirCasa(nombreArchivo);
+        // Escritura del archivo
         archivo.establecerRegistro(casa1);
         archivo.establecerSalida();
         archivo.cerrarArchivo();
-        
+
     }
 
     public static void ingresarDepartamento() {
@@ -437,6 +466,7 @@ public class Ejecutor {
         buscar = buscarPropietario(idProp);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarPropietario(idProp);
         }
         LeerPropietario lectura = new LeerPropietario(nombreArchivo1);
@@ -444,11 +474,13 @@ public class Ejecutor {
         ArrayList<Propietario> lista = lectura.obtenerListaPropietario();
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).obtenerIdentificacion().equals(idProp)) {
+                // obtencion de datos existentes en el archivo
                 nombreProp = lista.get(i).obtenerNombre();
                 apellidoProp = lista.get(i).obtenerApellido();
             }
         }
-        Propietario propDef = new Propietario(nombreProp, apellidoProp, idProp);
+        Propietario propDef = new Propietario(nombreProp, apellidoProp,
+                idProp);
         System.out.println("Ingrese el precio por metro cuadrado: ");
         precioM2 = entrada.nextDouble();
         System.out.println("Ingrese el número de metros cuadrados: ");
@@ -462,6 +494,7 @@ public class Ejecutor {
         buscar = buscarUbicacion(numeroCa);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarUbicacion(numeroCa);
         }
         LeerUbicacion lectura2 = new LeerUbicacion(nombreArchivo2);
@@ -469,18 +502,20 @@ public class Ejecutor {
         ArrayList<Ubicacion> lista2 = lectura2.obtenerListaUbicacion();
         for (int i = 0; i < lista2.size(); i++) {
             if (lista2.get(i).obtenerNumeroCasa().equals(numeroCa)) {
+                // obtencion de datos existentes en el archivo
                 nombreB = lista2.get(i).obtenerNombreBarrio();
                 referencia = lista2.get(i).obtenerReferencia();
             }
         }
         Ubicacion ubiDef = new Ubicacion(nombreB, referencia, numeroCa);
-        
+
         //Buscar ciudad
         System.out.println("Ingrese el nombre de la ciudad: ");
         ciudad = entrada.nextLine();
         buscar = buscarCiudad(ciudad);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarCiudad(ciudad);
         }
         LeerCiudad lectura3 = new LeerCiudad(nombreArchivo3);
@@ -488,6 +523,7 @@ public class Ejecutor {
         ArrayList<Ciudad> lista3 = lectura3.obtenerListaCiudad();
         for (int i = 0; i < lista3.size(); i++) {
             if (lista3.get(i).obtenerNombreCiudad().equals(ciudad)) {
+                // obtencion de datos existentes en el archivo
                 provincia = lista3.get(i).obtenerNombreProvincia();
             }
         }
@@ -503,6 +539,7 @@ public class Ejecutor {
         buscar = buscarConstructora(idEmp);
         if (buscar) {
         } else {
+            // ingreso de datos faltantes
             ingresarConstructora(idEmp);
         }
         LeerConstructora lectura4 = new LeerConstructora(nombreArchivo4);
@@ -510,14 +547,16 @@ public class Ejecutor {
         ArrayList<Constructora> lista4 = lectura4.obtenerListaConstructora();
         for (int i = 0; i < lista4.size(); i++) {
             if (lista4.get(i).obtenerIdEmpresa().equals(idEmp)) {
+                // obtencion de datos existentes en el archivo
                 nombreEmp = lista4.get(i).obtenerNombreConstructora();
             }
         }
         Constructora constDef = new Constructora(nombreEmp, idEmp);
-        Departamento dep1 = new Departamento(propDef, precioM2, numeroM2, 
+        Departamento dep1 = new Departamento(propDef, precioM2, numeroM2,
                 alicuotaMensual, ubiDef, ciuDef, nomEdi, ubiDepEdi, constDef);
         dep1.establecerCostoFinal();
         EscribirDepartamento archivo = new EscribirDepartamento(nombreArchivo);
+        // Escritura del archivo
         archivo.establecerRegistro(dep1);
         archivo.establecerSalida();
         archivo.cerrarArchivo();
@@ -532,6 +571,7 @@ public class Ejecutor {
         for (int i = 0; i < lista.size(); i++) {
             Propietario p = lista.get(i);
             if (p.obtenerIdentificacion().equals(n)) {
+                // control de existencia de datos
                 buscar = true;
                 // System.out.println(p);
             }
@@ -548,6 +588,7 @@ public class Ejecutor {
         for (int i = 0; i < lista.size(); i++) {
             Ubicacion u = lista.get(i);
             if (u.obtenerNumeroCasa().equals(n)) {
+                // control de existencia de datos
                 buscar = true;
                 // System.out.println(p);
             }
@@ -567,6 +608,7 @@ public class Ejecutor {
             Ciudad c = lista.get(i);
             m = c.obtenerNombreCiudad().toLowerCase();
             if (m.equals(n)) {
+                // control de existencia de datos
                 buscar = true;
                 // System.out.println(p);
             }
@@ -583,6 +625,7 @@ public class Ejecutor {
         for (int i = 0; i < lista.size(); i++) {
             Constructora c = lista.get(i);
             if (c.obtenerIdEmpresa().equals(n)) {
+                // control de existencia de datos
                 buscar = true;
                 // System.out.println(p);
             }
@@ -593,42 +636,54 @@ public class Ejecutor {
     public static void mostrarPropietarios() {
         String nombreArchivo = "propietarios.txt";
         LeerPropietario lectura = new LeerPropietario(nombreArchivo);
+        // Lectura del archivo
         lectura.establecerListaPropietario();
+        // Presentacion de la lista de datos
         System.out.println(lectura);
     }
 
     public static void mostrarUbicaciones() {
         String nombreArchivo = "ubicaciones.txt";
         LeerUbicacion lectura = new LeerUbicacion(nombreArchivo);
+        // Lectura del archivo
         lectura.establecerListaUbicacion();
+        // Presentacion de la lista de datos
         System.out.println(lectura);
     }
 
     public static void mostrarCiudades() {
         String nombreArchivo = "ciudades.txt";
         LeerCiudad lectura = new LeerCiudad(nombreArchivo);
+        // Lectura del archivo
         lectura.establecerListaCiudad();
+        // Presentacion de la lista de datos
         System.out.println(lectura);
     }
 
     public static void mostrarConstructoras() {
         String nombreArchivo = "constructoras.txt";
         LeerConstructora lectura = new LeerConstructora(nombreArchivo);
+        // Lectura del archivo
         lectura.establecerListaConstructora();
+        // Presentacion de la lista de datos
         System.out.println(lectura);
     }
 
     public static void mostrarCasas() {
         String nombreArchivo = "casas.txt";
         LeerCasa lectura = new LeerCasa(nombreArchivo);
+        // Lectura del archivo
         lectura.establecerListaCasa();
+        // Presentacion de la lista de datos
         System.out.println(lectura);
     }
 
     public static void mostrarDepartamentos() {
         String nombreArchivo = "departamentos.txt";
         LeerDepartamento lectura = new LeerDepartamento(nombreArchivo);
+        // Lectura del archivo
         lectura.establecerListaDepartamento();
+        // Presentacion de la lista de datos
         System.out.println(lectura);
     }
 

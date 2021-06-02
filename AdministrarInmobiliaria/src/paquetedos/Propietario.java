@@ -13,16 +13,19 @@ import java.io.Serializable;
  */
 public class Propietario implements Serializable {
 
+    // atributos
     private String nombre;
     private String apellido;
     private String identificacion;
 
+    //Constructor
     public Propietario(String name, String lastName, String id) {
         nombre = name;
         apellido = lastName;
         identificacion = id;
     }
 
+    // métodos establecer
     public void establecerNombre(String n) {
         nombre = n;
     }
@@ -35,6 +38,7 @@ public class Propietario implements Serializable {
         identificacion = id;
     }
 
+    // métodos obtener
     public String obtenerNombre() {
         return nombre;
     }
