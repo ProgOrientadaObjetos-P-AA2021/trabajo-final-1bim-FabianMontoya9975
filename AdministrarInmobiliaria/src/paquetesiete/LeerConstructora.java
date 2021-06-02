@@ -20,7 +20,7 @@ import paquetecinco.Constructora;
 public class LeerConstructora {
 
     private ObjectInputStream entrada;
-    private ArrayList<Constructora> listaCiudad;
+    private ArrayList<Constructora> listaConstructora;
     private String nombreArchivo;
 
     public LeerConstructora(String n) {
@@ -45,14 +45,14 @@ public class LeerConstructora {
 
     public void establecerListaConstructora() {
         // 
-        listaCiudad = new ArrayList<>();
+        listaConstructora = new ArrayList<>();
         File f = new File(obtenerNombreArchivo());
         if (f.exists()) {
 
             while (true) {
                 try {
                     Constructora registro = (Constructora) entrada.readObject();
-                    listaCiudad.add(registro);
+                    listaConstructora.add(registro);
                 } catch (EOFException endOfFileException) {
                     return; // se llegó al fin del archivo
 
@@ -70,7 +70,7 @@ public class LeerConstructora {
     }
 
     public ArrayList<Constructora> obtenerListaConstructora() {
-        return listaCiudad;
+        return listaConstructora;
     }
 
     public String obtenerNombreArchivo() {
